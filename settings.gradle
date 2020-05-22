@@ -1,0 +1,2 @@
+rootProject.name='TI2_Proyecto'
+include ':app'
