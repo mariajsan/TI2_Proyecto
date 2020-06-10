@@ -4,15 +4,20 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.ui.AppBarConfiguration
 import com.google.android.material.navigation.NavigationView
-
+import android.media.MediaPlayer
+import kotlinx.android.synthetic.main.content_main.*
+import android.view.MotionEvent
+import androidx.lifecycle.whenCreated
 
 class MainActivity : AppCompatActivity() {
 
+    private var mediaPlayer: MediaPlayer? = null
     private lateinit var appBarConfiguration: AppBarConfiguration
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -20,7 +25,6 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
-
 
         val drawerLayout: DrawerLayout = findViewById(R.id.drawer_layout)
         val navView: NavigationView = findViewById(R.id.nav_view)
@@ -31,7 +35,36 @@ class MainActivity : AppCompatActivity() {
                 R.id.nav_addbutton, R.id.nav_editbutton, R.id.nav_perfil), drawerLayout)
         //setupActionBarWithNavController(navController, appBarConfiguration)
        // navView.setupWithNavController(navController)
+
+        mediaPlayer = MediaPlayer.create(this, R.raw.lug_casa)
+        mediaPlayer?.setOnPreparedListener{
+
+        }
+
+        lug_casa.setOnTouchListener {_, event ->
+            handleTouch(event)
+            true
+        }
+
     }
+
+    private fun handleTouch(event: MotionEvent) {
+        when(event.action) {
+            MotionEvent.ACTION_DOWN -> {
+                println("down")
+                mediaPlayer?.start()
+            }
+            MotionEvent.ACTION_CANCEL, MotionEvent.ACTION_UP ->{
+                println("up or cancel")
+                mediaPlayer?.pause()
+                mediaPlayer?.seekTo(0)
+            }
+            else ->{
+                println("other")
+            }
+        }
+    }
+
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.
