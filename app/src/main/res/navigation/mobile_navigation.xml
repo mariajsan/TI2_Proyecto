@@ -37,7 +37,7 @@
 
     <fragment
         android:id="@+id/nav_perfil"
-        android:name="com.example.ti2_proyecto.ui.slideshow.SlideshowFragment"
+        android:name="com.example.ti2_proyecto.ui.user_config_class.Users_Activity"
         android:label="@string/menu_slideshow"
-        tools:layout="@layout/fragment_slideshow" />
+        tools:layout="@layout/user_configuration" />
 </navigation>

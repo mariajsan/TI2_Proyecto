@@ -4,7 +4,6 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.drawerlayout.widget.DrawerLayout
@@ -13,9 +12,16 @@ import com.google.android.material.navigation.NavigationView
 import android.media.MediaPlayer
 import kotlinx.android.synthetic.main.content_main.*
 import android.view.MotionEvent
-import androidx.lifecycle.whenCreated
+import com.example.ti2_proyecto.Adapter.ListUserAdapter
+import com.example.ti2_proyecto.entities.DBHelper
+import com.example.ti2_proyecto.entities.User
+import com.example.ti2_proyecto.ui.user_config_class.Users_Activity
+import kotlinx.android.synthetic.main.user_configuration.*
 
 class MainActivity : AppCompatActivity() {
+
+    internal lateinit var db:DBHelper
+    internal var listUsers:List<User> = ArrayList<User>()
 
     private var mediaPlayer: MediaPlayer? = null
     private lateinit var appBarConfiguration: AppBarConfiguration
@@ -39,12 +45,22 @@ class MainActivity : AppCompatActivity() {
         mediaPlayer = MediaPlayer.create(this, R.raw.lug_casa)
         mediaPlayer?.setOnPreparedListener{
 
+            db = DBHelper(this)
+
+            refreshData()
         }
 
         lug_casa.setOnTouchListener {_, event ->
             handleTouch(event)
             true
         }
+
+    }
+
+    private fun refreshData(){
+        listUsers = db.AllUsers
+        val adapter = ListUserAdapter(this@MainActivity,listUsers,edt_id,edt_name,edt_gender,edt_color,edt_parent,edt_image,edt_level,edt_session)
+        List_Users.adapter = adapter
 
     }
 
@@ -82,7 +98,18 @@ class MainActivity : AppCompatActivity() {
             }
             else -> super.onOptionsItemSelected(item)
         }
+
+        return when (item.itemId) {
+            R.id.nav_perfil -> {
+                val intent = Intent(this, Users_Activity::class.java)
+                startActivity(intent)
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
     }
+
+
 
     fun abriropciones(){
 
