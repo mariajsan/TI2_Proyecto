@@ -20,8 +20,6 @@ import kotlinx.android.synthetic.main.user_configuration.*
 
 class MainActivity : AppCompatActivity() {
 
-    internal lateinit var db:DBHelper
-    internal var listUsers:List<User> = ArrayList<User>()
 
     private var mediaPlayer: MediaPlayer? = null
     private lateinit var appBarConfiguration: AppBarConfiguration
@@ -45,9 +43,7 @@ class MainActivity : AppCompatActivity() {
         mediaPlayer = MediaPlayer.create(this, R.raw.lug_casa)
         mediaPlayer?.setOnPreparedListener{
 
-            db = DBHelper(this)
 
-            refreshData()
         }
 
         lug_casa.setOnTouchListener {_, event ->
@@ -57,12 +53,6 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    private fun refreshData(){
-        listUsers = db.AllUsers
-        val adapter = ListUserAdapter(this@MainActivity,listUsers,edt_id,edt_name,edt_gender,edt_color,edt_parent,edt_image,edt_level,edt_session)
-        List_Users.adapter = adapter
-
-    }
 
     private fun handleTouch(event: MotionEvent) {
         when(event.action) {
@@ -96,24 +86,12 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
                 true
             }
-            else -> super.onOptionsItemSelected(item)
-        }
 
-        return when (item.itemId) {
-            R.id.nav_perfil -> {
-                val intent = Intent(this, Users_Activity::class.java)
-                startActivity(intent)
-                true
-            }
             else -> super.onOptionsItemSelected(item)
         }
     }
 
 
-
-    fun abriropciones(){
-
-    }
 
     //override fun onSupportNavigateUp(): Boolean {
         //val navController = findNavController(R.id.nav_host_fragment)
