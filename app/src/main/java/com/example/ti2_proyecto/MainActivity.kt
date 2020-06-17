@@ -88,6 +88,18 @@ class MainActivity : AppCompatActivity() {
         soundPool!!.load(baseContext, R.raw.per_gato, 1)
         soundPool!!.load(baseContext, R.raw.per_madre, 1)
         soundPool!!.load(baseContext, R.raw.per_ninio, 1)
+        soundPool!!.load(baseContext, R.raw.acc_comer, 1)
+        soundPool!!.load(baseContext, R.raw.acc_escuchar, 1)
+        soundPool!!.load(baseContext, R.raw.acc_hacer, 1)
+        soundPool!!.load(baseContext, R.raw.acc_ir, 1)
+        soundPool!!.load(baseContext, R.raw.acc_jugar, 1)
+        soundPool!!.load(baseContext, R.raw.acc_mirar, 1)
+        soundPool!!.load(baseContext, R.raw.acc_querer, 1)
+        soundPool!!.load(baseContext, R.raw.acc_saludar, 1)
+        soundPool!!.load(baseContext, R.raw.acc_tener, 1)
+        soundPool!!.load(baseContext, R.raw.pro_ellos, 1)
+        soundPool!!.load(baseContext, R.raw.pro_tu, 1)
+        soundPool!!.load(baseContext, R.raw.pro_yo, 1)
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
 
@@ -116,20 +128,20 @@ class MainActivity : AppCompatActivity() {
                             0 -> {btn5.background = v.background; click5 = name;
                                 handler.postDelayed(Runnable {
                                     soundPool?.play(click1, 1F, 1F, 0, 0, 1F)
-                                }, 1000)
+                                }, 750)
 
                                 handler.postDelayed(Runnable {
                                     soundPool?.play(click2, 1F, 1F, 0, 0, 1F)
-                                }, 2000)
+                                }, 1500)
                                 handler.postDelayed(Runnable {
                                     soundPool?.play(click3, 1F, 1F, 0, 0, 1F)
-                                }, 3000)
+                                }, 2250)
                                 handler.postDelayed(Runnable {
                                     soundPool?.play(click4, 1F, 1F, 0, 0, 1F)
-                                }, 4000)
+                                }, 3000)
                                 handler.postDelayed(Runnable {
                                     soundPool?.play(click5, 1F, 1F, 0, 0, 1F)
-                                }, 5000)
+                                }, 3750)
                                 handler.postDelayed(Runnable {
                                     click1 = 0;
                                     click2 = 0;
@@ -141,7 +153,7 @@ class MainActivity : AppCompatActivity() {
                                     btn3.background = resources.getDrawable(R.drawable.ic_launcher_foreground);
                                     btn4.background = resources.getDrawable(R.drawable.ic_launcher_foreground);
                                     btn5.background = resources.getDrawable(R.drawable.ic_launcher_foreground);
-                                }, 6000)
+                                }, 4500)
 
                             }
                         }
@@ -152,36 +164,36 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun playPile(view: View){
-        var count: Int = 1000
+        var count: Int = 750
         if(click1 != 0){
-            count += 1000
+            count += 750
             handler.postDelayed(Runnable {
                 soundPool?.play(click1, 1F, 1F, 0, 0, 1F)
-            }, 1000)
+            }, 750)
         }
         if(click2 != 0){
-            count += 1000
+            count += 750
             handler.postDelayed(Runnable {
                 soundPool?.play(click2, 1F, 1F, 0, 0, 1F)
-            }, 2000)
+            }, 1500)
         }
         if(click3 != 0){
-            count += 1000
+            count += 750
             handler.postDelayed(Runnable {
                 soundPool?.play(click3, 1F, 1F, 0, 0, 1F)
-            }, 3000)
+            }, 2250)
         }
         if(click4 != 0){
-            count += 1000
+            count += 750
             handler.postDelayed(Runnable {
                 soundPool?.play(click4, 1F, 1F, 0, 0, 1F)
-            }, 4000)
+            }, 3000)
         }
         if(click5 != 0){
-            count += 1000
+            count += 750
             handler.postDelayed(Runnable {
                 soundPool?.play(click5, 1F, 1F, 0, 0, 1F)
-            }, 1000)
+            }, 3750)
         }
         handler.postDelayed(Runnable {
             click1 = 0;
@@ -247,6 +259,18 @@ class MainActivity : AppCompatActivity() {
             R.id.per_gato -> {soundId  = 46; setUpBtn(v, soundId)}
             R.id.per_madre -> {soundId  = 47; setUpBtn(v, soundId)}
             R.id.per_ninio -> {soundId  = 48; setUpBtn(v, soundId)}
+            R.id.acc_comer -> {soundId  = 49; setUpBtn(v, soundId)}
+            R.id.acc_escuchar -> {soundId  = 50; setUpBtn(v, soundId)}
+            R.id.acc_hacer -> {soundId  = 51; setUpBtn(v, soundId)}
+            R.id.acc_ir -> {soundId  = 52; setUpBtn(v, soundId)}
+            R.id.acc_jugar -> {soundId  = 53; setUpBtn(v, soundId)}
+            R.id.acc_mirar -> {soundId  = 54; setUpBtn(v, soundId)}
+            R.id.acc_querer -> {soundId  = 55; setUpBtn(v, soundId)}
+            R.id.acc_saludar -> {soundId  = 56; setUpBtn(v, soundId)}
+            R.id.acc_tener -> {soundId  = 57; setUpBtn(v, soundId)}
+            R.id.pro_ellos -> {soundId  = 58; setUpBtn(v, soundId)}
+            R.id.pro_tu -> {soundId  = 59; setUpBtn(v, soundId)}
+            R.id.pro_yo -> {soundId  = 60; setUpBtn(v, soundId)}
         }
         soundPool?.play(soundId, 1F, 1F, 0, 0, 1F)
     }

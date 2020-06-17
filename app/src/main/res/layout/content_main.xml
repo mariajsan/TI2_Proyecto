@@ -61,7 +61,125 @@
     <LinearLayout
         android:orientation ="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal">
+
+        <LinearLayout
+            android:orientation ="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="3">
+
+            <Button
+                android:id="@+id/pro_yo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/pro_yo"
+                android:onClick="playSound"
+                />
+            <Button
+                android:id="@+id/pro_tu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/pro_tu"
+                android:onClick="playSound"/>
+
+            <Button
+                android:id="@+id/pro_ellos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/pro_ellos"
+                android:onClick="playSound"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation ="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="3">
+
+            <Button
+                android:id="@+id/acc_comer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/acc_comer"
+                android:onClick="playSound"
+                />
+            <Button
+                android:id="@+id/acc_escuchar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/acc_escuchar"
+                android:onClick="playSound"/>
+
+            <Button
+                android:id="@+id/acc_hacer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/acc_hacer"
+                android:onClick="playSound"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation ="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="3">
+
+            <Button
+                android:id="@+id/acc_ir"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/acc_ir"
+                android:onClick="playSound"
+                />
+            <Button
+                android:id="@+id/acc_jugar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/acc_jugar"
+                android:onClick="playSound"/>
+
+            <Button
+                android:id="@+id/acc_mirar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/acc_mirar"
+                android:onClick="playSound"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation ="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="3">
+
+            <Button
+                android:id="@+id/acc_querer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/acc_querer"
+                android:onClick="playSound"
+                />
+            <Button
+                android:id="@+id/acc_saludar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/acc_saludar"
+                android:onClick="playSound"/>
+
+            <Button
+                android:id="@+id/acc_tener"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/acc_tener"
+                android:onClick="playSound"/>
+
+        </LinearLayout>
+
     <LinearLayout
         android:orientation ="horizontal"
         android:layout_width="match_parent"
